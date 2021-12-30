@@ -2,16 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rio_driver_ui_screens/screens/search_rider_page.dart';
+import 'package:rio_driver_ui_screens/screens/rider_notification_page.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class SearchRider extends StatefulWidget {
+  const SearchRider({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _SearchRiderState createState() => _SearchRiderState();
 }
 
-class _HomeState extends State<Home> {
+class _SearchRiderState extends State<SearchRider> {
   GlobalKey<ScaffoldState> _scaffoldKEY = GlobalKey<ScaffoldState>();
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
 
@@ -199,7 +199,7 @@ class _HomeState extends State<Home> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: 225,
+                  height: 135,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -221,7 +221,7 @@ class _HomeState extends State<Home> {
                           height: 0,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 70, right: 70),
+                          padding: const EdgeInsets.only(left: 100, right: 100),
                           child: Divider(
                             color: Colors.black45,
                             thickness: 2,
@@ -231,43 +231,33 @@ class _HomeState extends State<Home> {
                           height: 15,
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Expanded(
-                                child: Container(
-                              color: Colors.white,
-                              child: CircleAvatar(
-                                radius: 70,
-                                child: Column(
-                                  children: [
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    SearchRider()));
-                                      },
-                                      icon: Icon(
-                                        Icons.arrow_upward_sharp,
-                                        size: 40,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      ' Go!',
-                                      style: TextStyle(color: Colors.white),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ))
+                            Text(
+                              'You\'re Online!',
+                              style: TextStyle(color: Colors.indigo),
+                            )
                           ],
                         ),
-                        SizedBox(
-                          height: 10,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              RiderNotification()));
+                                },
+                                child: Text(
+                                  'Searching for Rides...',
+                                  style: TextStyle(
+                                      color: Colors.indigo,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ))
+                          ],
                         ),
                       ],
                     ),
