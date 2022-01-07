@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:rio_driver_ui_screens/screens/finish_ride_page.dart';
 
 class PickUpRider extends StatefulWidget {
   const PickUpRider({Key? key}) : super(key: key);
@@ -97,12 +98,107 @@ class _PickUpRiderState extends State<PickUpRider> {
             //             onPressed: () {},
             //           ),
             //         ))),
+            // Positioned(
+            //     bottom: 0,
+            //     left: 0,
+            //     right: 0,
+            //     child: Container(
+            //       height: 115,
+            //       decoration: BoxDecoration(
+            //           color: Colors.white,
+            //           borderRadius: BorderRadius.only(
+            //               topLeft: Radius.circular(34),
+            //               topRight: Radius.circular(34)),
+            //           boxShadow: [
+            //             BoxShadow(
+            //               color: Colors.black,
+            //               blurRadius: 16,
+            //               //spreadRadius: 0.5,
+            //               //  offset: Offset(0.7, 0.7),
+            //             ),
+            //           ]),
+            //       child: Column(
+            //         children: [
+            //           SizedBox(
+            //             height: 10,
+            //           ),
+            //           Padding(
+            //             padding: const EdgeInsets.only(left: 120, right: 120),
+            //             child: Divider(
+            //               thickness: 2,
+            //               color: Colors.grey,
+            //             ),
+            //           ),
+            //           Container(
+            //             height: 70,
+            //             // color: Colors.indigo,
+            //             child: Padding(
+            //               padding: const EdgeInsets.only(left: 28, right: 28),
+            //               child: Column(
+            //                 children: [
+            //                   SizedBox(
+            //                     height: 10,
+            //                   ),
+            //                   Row(
+            //                     mainAxisAlignment: MainAxisAlignment.start,
+            //                     children: [
+            //                       CircleAvatar(
+            //                         backgroundColor: Colors.indigo,
+            //                         radius: 25,
+            //                         child: Icon(
+            //                           Icons.call,
+            //                           color: Colors.white,
+            //                           size: 30,
+            //                         ),
+            //                       ),
+            //                       SizedBox(
+            //                         width: 10,
+            //                       ),
+            //                       CircleAvatar(
+            //                         backgroundColor: Colors.indigo,
+            //                         radius: 25,
+            //                         child: Icon(
+            //                           Icons.message,
+            //                           color: Colors.white,
+            //                           size: 30,
+            //                         ),
+            //                       ),
+            //                       SizedBox(
+            //                         width: 70,
+            //                       ),
+            //                       Column(
+            //                         children: [
+            //                           Text(
+            //                             '2 mins away',
+            //                             style: TextStyle(color: Colors.indigo),
+            //                           ),
+            //                           SizedBox(
+            //                             height: 2,
+            //                           ),
+            //                           Text(
+            //                             'rider is waiting',
+            //                             style: TextStyle(color: Colors.grey),
+            //                           ),
+            //                         ],
+            //                       )
+            //                     ],
+            //                   ),
+            //                   SizedBox(
+            //                     height: 10,
+            //                   ),
+            //                 ],
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ))
             Positioned(
                 bottom: 0,
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: 115,
+                  height: 330,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -122,11 +218,73 @@ class _PickUpRiderState extends State<PickUpRider> {
                         height: 10,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 120, right: 120),
-                        child: Divider(
-                          thickness: 2,
-                          color: Colors.grey,
+                        padding: const EdgeInsets.only(left: 12, right: 12),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Ride Details',
+                              style: TextStyle(
+                                  color: Colors.indigo,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            SizedBox(
+                              width: 190,
+                            ),
+                            Icon(
+                              Icons.close_rounded,
+                              color: Colors.indigo,
+                            )
+                          ],
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12, right: 12),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 100,
+                            ),
+                            Container(
+                              height: 25,
+                              child: MaterialButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(22)),
+                                color: Colors.grey[300],
+                                onPressed: () {},
+                                child: Text(
+                                  '3 min',
+                                  style: TextStyle(color: Colors.indigo),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Container(
+                              height: 25,
+                              child: MaterialButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(22)),
+                                color: Colors.grey[300],
+                                onPressed: () {},
+                                child: Text(
+                                  '2 km',
+                                  style: TextStyle(color: Colors.indigo),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(
+                        thickness: 2,
+                        color: Colors.grey,
                       ),
                       Container(
                         height: 70,
@@ -143,52 +301,121 @@ class _PickUpRiderState extends State<PickUpRider> {
                                 children: [
                                   CircleAvatar(
                                     backgroundColor: Colors.indigo,
-                                    radius: 25,
-                                    child: Icon(
-                                      Icons.call,
-                                      color: Colors.white,
-                                      size: 30,
-                                    ),
+                                    radius: 5,
                                   ),
                                   SizedBox(
                                     width: 10,
                                   ),
-                                  CircleAvatar(
-                                    backgroundColor: Colors.indigo,
-                                    radius: 25,
-                                    child: Icon(
-                                      Icons.message,
-                                      color: Colors.white,
-                                      size: 30,
+                                  Text(
+                                    'Current Location',
+                                    style: TextStyle(
+                                      color: Colors.indigo,
                                     ),
                                   ),
-                                  SizedBox(
-                                    width: 70,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        '2 mins away',
-                                        style: TextStyle(color: Colors.indigo),
-                                      ),
-                                      SizedBox(
-                                        height: 2,
-                                      ),
-                                      Text(
-                                        'rider is waiting',
-                                        style: TextStyle(color: Colors.grey),
-                                      ),
-                                    ],
-                                  )
                                 ],
                               ),
                               SizedBox(
                                 height: 10,
                               ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: Colors.indigo,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    'Destination',
+                                    style: TextStyle(
+                                      color: Colors.indigo,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
                       ),
+                      Divider(
+                        thickness: 2,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 22),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Trip Earning Estimate',
+                              style: TextStyle(
+                                  color: Colors.indigo,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 25),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                SizedBox(
+                                  height: 0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 65, right: 0),
+                                  child: Text(
+                                    'CASH',
+                                    style: TextStyle(color: Colors.indigo),
+                                  ),
+                                ),
+                                Text(
+                                  'Rs, 120 - Rs, 150',
+                                  style: TextStyle(color: Colors.indigo),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 85, right: 85),
+                        child: Container(
+                          height: 50,
+                          width: double.infinity,
+                          child: MaterialButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16)),
+                            color: Colors.indigo,
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => FinishRide()));
+                            },
+                            child: Text(
+                              'Start Ride',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ))

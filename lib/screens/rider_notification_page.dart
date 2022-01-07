@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rio_driver_ui_screens/screens/accept_ride_page.dart';
+import 'package:rio_driver_ui_screens/screens/arrived_on_spot_page.dart';
 
 class RiderNotification extends StatefulWidget {
   const RiderNotification({Key? key}) : super(key: key);
@@ -64,7 +65,7 @@ class _RiderNotificationState extends State<RiderNotification> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: 330,
+                  height: 370,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -121,7 +122,7 @@ class _RiderNotificationState extends State<RiderNotification> {
                               child: MaterialButton(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(22)),
-                                color: Colors.grey,
+                                color: Colors.grey[200],
                                 onPressed: () {},
                                 child: Text(
                                   '3 min',
@@ -137,7 +138,7 @@ class _RiderNotificationState extends State<RiderNotification> {
                               child: MaterialButton(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(22)),
-                                color: Colors.grey,
+                                color: Colors.grey[200],
                                 onPressed: () {},
                                 child: Text(
                                   '2 km',
@@ -173,7 +174,7 @@ class _RiderNotificationState extends State<RiderNotification> {
                                     width: 10,
                                   ),
                                   Text(
-                                    'Pickup location name',
+                                    'Driver\'s Current Location',
                                     style: TextStyle(
                                       color: Colors.indigo,
                                     ),
@@ -194,7 +195,7 @@ class _RiderNotificationState extends State<RiderNotification> {
                                     width: 5,
                                   ),
                                   Text(
-                                    'Dropoff location name',
+                                    'Rider\'s Location ',
                                     style: TextStyle(
                                       color: Colors.indigo,
                                     ),
@@ -266,34 +267,64 @@ class _RiderNotificationState extends State<RiderNotification> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(
-                                  width: 50,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    SizedBox(
-                                      height: 40,
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 65, right: 0),
-                                      child: Text(
-                                        'CASH',
-                                        style: TextStyle(color: Colors.indigo),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Rs, 120 - Rs, 150',
-                                      style: TextStyle(color: Colors.indigo),
-                                    ),
-                                  ],
-                                )
                               ],
                             ),
                             SizedBox(
                               height: 10,
                             ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: Colors.indigo,
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.call,
+                                    color: Colors.white,
+                                  )),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            CircleAvatar(
+                              backgroundColor: Colors.indigo,
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.message,
+                                    color: Colors.white,
+                                  )),
+                            ),
+                            SizedBox(
+                              width: 110,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                SizedBox(
+                                  height: 0,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 65, right: 0),
+                                  child: Text(
+                                    'CASH',
+                                    style: TextStyle(color: Colors.indigo),
+                                  ),
+                                ),
+                                Text(
+                                  'Rs, 120 - Rs, 150',
+                                  style: TextStyle(color: Colors.indigo),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       ),
@@ -313,10 +344,10 @@ class _RiderNotificationState extends State<RiderNotification> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AcceptRide()));
+                                      builder: (context) => ArrivedPage()));
                             },
                             child: Text(
-                              'Accept Ride',
+                              'PickUp Rider',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16),
                             ),

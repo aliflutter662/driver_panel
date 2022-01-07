@@ -33,38 +33,91 @@ class _ArrivedPageState extends State<ArrivedPage> {
                   _controllerGoogleMap.complete(controller);
                   newGoogleMapControler = controller;
                 }),
+
             Positioned(
                 top: 30,
-                left: 20,
+                left: 10,
+                right: 10,
                 child: Container(
-                    height: 60,
+                    height: 80,
                     child: Card(
-                      child: IconButton(
-                        icon: Icon(Icons.menu),
-                        color: Colors.indigo,
-                        iconSize: 35,
-                        onPressed: () {},
-                      ),
-                    ))),
-            Positioned(
-                top: 30,
-                right: 20,
-                child: Container(
-                    height: 60,
-                    child: Card(
-                      child: IconButton(
-                        icon: Icon(Icons.notification_add),
-                        color: Colors.indigo,
-                        iconSize: 35,
-                        onPressed: () {},
-                      ),
-                    ))),
+                        child: Column(
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Text('Picking Up Rider',
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Text(
+                                  'Pickup location',
+                                  style: TextStyle(color: Colors.indigo),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              width: 80,
+                            ),
+                            Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60),
+                                      border: Border.all(color: Colors.indigo)),
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    radius: 24,
+                                    child: Text('05 km',
+                                        style: TextStyle(color: Colors.indigo)),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    )))),
+            // Positioned(
+            //     top: 30,
+            //     left: 20,
+            //     child: Container(
+            //         height: 60,
+            //         child: Card(
+            //           child: IconButton(
+            //             icon: Icon(Icons.menu),
+            //             color: Colors.indigo,
+            //             iconSize: 35,
+            //             onPressed: () {},
+            //           ),
+            //         ))),
+            // Positioned(
+            //     top: 30,
+            //     right: 20,
+            //     child: Container(
+            //         height: 60,
+            //         child: Card(
+            //           child: IconButton(
+            //             icon: Icon(Icons.notification_add),
+            //             color: Colors.indigo,
+            //             iconSize: 35,
+            //             onPressed: () {},
+            //           ),
+            //         ))),
             Positioned(
                 bottom: 0,
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: 275,
+                  height: 295,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -91,12 +144,26 @@ class _ArrivedPageState extends State<ArrivedPage> {
                         ),
                       ),
                       Container(
-                        height: 70,
+                        height: 90,
                         // color: Colors.indigo,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 28, right: 28),
                           child: Column(
                             children: [
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'PickUp Rider',
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
@@ -125,31 +192,45 @@ class _ArrivedPageState extends State<ArrivedPage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 30,
+                                    width: 80,
                                   ),
                                   Column(
                                     children: [
-                                      Text(
-                                        '2 mins away',
-                                        style: TextStyle(color: Colors.indigo),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            color: Colors.grey[300]),
+                                        child: Text(
+                                          ' 3 min ',
+                                          style:
+                                              TextStyle(color: Colors.indigo),
+                                        ),
                                       ),
                                       SizedBox(
-                                        height: 2,
+                                        height: 4,
                                       ),
-                                      Text(
-                                        'rider is waiting',
-                                        style: TextStyle(color: Colors.grey),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            color: Colors.grey[300]),
+                                        child: Text(
+                                          ' 2 km ',
+                                          style:
+                                              TextStyle(color: Colors.indigo),
+                                        ),
                                       ),
                                     ],
                                   )
                                 ],
                               ),
-                              SizedBox(
-                                height: 10,
-                              ),
                             ],
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        height: 0,
                       ),
                       Divider(
                         thickness: 2,
