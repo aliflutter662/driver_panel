@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rio_driver_ui_screens/screens/total_fare_amount.dart';
 
 class TotalFare extends StatefulWidget {
   const TotalFare({Key? key}) : super(key: key);
@@ -61,10 +62,10 @@ class _TotalFareState extends State<TotalFare> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18)),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => TotalFare()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TotalFareAmount()));
                   },
                   child: Text("Fare Received",
                       style: TextStyle(

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:rio_driver_ui_screens/screens/notifications.dart';
 import 'package:rio_driver_ui_screens/screens/search_rider_page.dart';
 
 class Home extends StatefulWidget {
@@ -191,7 +192,12 @@ class _HomeState extends State<Home> {
                         icon: Icon(Icons.notification_add),
                         color: Colors.indigo,
                         iconSize: 35,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Notifications()));
+                        },
                       ),
                     ))),
             Positioned(
