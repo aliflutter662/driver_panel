@@ -1,7 +1,9 @@
 import 'dart:async';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:rio_driver_ui_screens/screens/About/about.dart';
+import 'package:rio_driver_ui_screens/screens/About/app_privacy.dart';
 import 'package:rio_driver_ui_screens/screens/notifications.dart';
 import 'package:rio_driver_ui_screens/screens/search_rider_page.dart';
 
@@ -146,6 +148,56 @@ class _HomeState extends State<Home> {
               height: 10,
             ),
             ListTile(
+              leading: Icon(Icons.contact_page, color: Colors.white),
+              title: Text(
+                "Contact us",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              onTap: () {
+                _showMyDialog();
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ListTile(
+              leading: Icon(Icons.account_box_outlined, color: Colors.white),
+              title: Text(
+                "About us",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutUs()));
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ListTile(
+              leading: Icon(Icons.privacy_tip, color: Colors.white),
+              title: Text(
+                "App Privacy",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AppPrivacy()));
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ListTile(
               leading: Icon(Icons.logout, color: Colors.white),
               title: const Text(
                 'Log Out',
@@ -282,6 +334,113 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text(
+            'Contact us',
+            style: TextStyle(color: Colors.grey),
+          ),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextButton.icon(
+                      icon: FaIcon(
+                        FontAwesomeIcons.whatsapp,
+                        color: Colors.indigo,
+                      ),
+                      label: Text(
+                        'WhatsApp:03207172727',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    Divider(),
+                    TextButton.icon(
+                      icon: FaIcon(FontAwesomeIcons.mailBulk,
+                          color: Colors.indigo),
+                      label: Text(
+                        'Email Address:contact@heyrio.co',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    Divider(),
+                    TextButton.icon(
+                      icon:
+                          FaIcon(FontAwesomeIcons.weebly, color: Colors.indigo),
+                      label: Text(
+                        'Website:http://heyrio.co',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    Divider(),
+                    TextButton.icon(
+                      icon: FaIcon(FontAwesomeIcons.facebook,
+                          color: Colors.indigo),
+                      label: Text(
+                        'Facebook page: https://www.facebook.com/heyrio.co/',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    Divider(),
+                    TextButton.icon(
+                      icon: FaIcon(FontAwesomeIcons.instagram,
+                          color: Colors.indigo),
+                      label: Text(
+                        'Instagram: heyrio.co',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    Divider(),
+                    TextButton.icon(
+                      icon: FaIcon(FontAwesomeIcons.addressCard,
+                          color: Colors.indigo),
+                      label: Text(
+                        'Street address: Valencia town, Lahore, Punjab, Pakistan-54100',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          // actions: <Widget>[
+          //   TextButton(
+          //     child: const Text('Approve'),
+          //     onPressed: () {
+          //       Navigator.of(context).pop();
+          //     },
+          //   ),
+          // ],
+        );
+      },
     );
   }
 }
